@@ -1,0 +1,29 @@
+:root { --primary: #337ab7; --success: #2d8a2d; --danger: #e74c3c; --review: #8e44ad; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f4f7f6; }
+         
+        header { background: #fff; padding: 10px 25px; border-bottom: 3px solid var(--primary); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        #timer { font-weight: bold; font-size: 1.2em; color: #d9534f; border: 1px solid #d9534f; padding: 5px 15px; border-radius: 4px; }
+
+        .container { display: flex; flex: 1; overflow: hidden; }
+        .test-area { flex: 3; padding: 30px; overflow-y: auto; background: white; }
+        .sidebar { flex: 1; background: #f9f9f9; border-left: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; }
+
+        .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px; }
+        
+        /* --- NTA 4-COLOR CODES --- */
+        .q-num { 
+            width: 45px; height: 40px; display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; border: 1px solid #ccc; background: #eee; color: #444; font-weight: bold;
+        }
+        /* 1. Answered (Green) */
+        .answered { background: var(--success) !important; color: white !important; border-radius: 12px 12px 0 0; }
+        /* 2. Not Answered / Visited (Red) */
+        .not-answered { background: var(--danger) !important; color: white !important; border-radius: 0 0 12px 12px; }
+        /* 3. Marked for Review (Purple) */
+        .marked { background: var(--review) !important; color: white !important; border-radius: 50%; }
+        /* 4. Not Visited (Default Grey) - No extra class needed */
+
+        footer { background: #e5e5e5; padding: 15px 30px; display: flex; justify-content: space-between; border-top: 1px solid #ccc; }
+        .btn { padding: 10px 20px; cursor: pointer; border: 1px solid #999; font-weight: 600; border-radius: 3px; }
+        .btn-next { background: var(--success); color: white; border: none; }
+        .btn-submit { background: #333; color: white; margin-top: 20px; width: 100%; }

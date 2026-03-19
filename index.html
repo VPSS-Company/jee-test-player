@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JEE Main Test Portal</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div style="font-size: 1.2em; font-weight: bold;">JEE Main Mock Test</div>
+    <div id="timer">03:00:00</div>
+</header>
+
+<div class="container">
+    <div class="test-area" id="question-container">
+        <h3 id="q-title">Connecting to Paper...</h3>
+        <div id="q-text" style="font-size: 1.1em; margin-bottom: 20px;">Please wait...</div>
+        <div id="options-list"></div>
+    </div>
+
+    <div class="sidebar">
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div style="width: 60px; height: 60px; background: #ddd; margin: 0 auto; border-radius: 5px;"></div>
+            <p><strong>Candidate Name</strong></p>
+        </div>
+        <hr>
+        <strong>Question Palette:</strong>
+        <div class="palette" id="palette-grid"></div>
+        <button class="btn btn-submit" onclick="submitTest()">SUBMIT TEST</button>
+    </div>
+</div>
+
+<footer>
+    <button class="btn" onclick="markForReview()">Mark for Review & Next</button>
+    <button class="btn btn-next" onclick="saveAndNext()">Save & Next</button>
+</footer>
+
+<script src="script.js"></script>
+
+</script>
+
+</body>
+</html>
