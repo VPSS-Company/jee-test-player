@@ -115,7 +115,7 @@
 
     // --- PROCTORING CONFIGURATION ---
 let tabChangeCount = 0;
-const MAX_ALLOWED_CHANGES = 3;
+const MAX_ALLOWED_CHANGES = 4;
 
 // Function to handle the auto-submit
 function autoSubmitExam() {
