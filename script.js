@@ -111,3 +111,57 @@
     }
 
     window.onload = () => { initTimer(); loadExam(); };
+
+
+    // --- PROCTORING CONFIGURATION ---
+let tabChangeCount = 0;
+const MAX_ALLOWED_CHANGES = 3;
+
+// Function to handle the auto-submit
+function autoSubmitExam() {
+    alert("CRITICAL: You have switched tabs/windows more than 3 times. Your test is being submitted automatically.");
+    
+    // Replace 'submitBtn' with the actual ID of your submit button
+    // Or call your existing submit function directly
+    const submitButton = document.getElementById('submitBtn'); 
+    if (submitButton) {
+        submitButton.click();
+    } else {
+        // Fallback: Redirect or trigger your submission logic here
+        console.log("Auto-submitting exam data...");
+        window.location.href = "thankyou.html"; // Example redirect after submission
+    }
+}
+
+// Function to warn the user
+function handleViolation() {
+    tabChangeCount++;
+    
+    if (tabChangeCount >= MAX_ALLOWED_CHANGES) {
+        autoSubmitExam();
+    } else {
+        const remaining = MAX_ALLOWED_CHANGES - tabChangeCount;
+        alert(`WARNING: Window/Tab switch detected! \nAttempts remaining: ${remaining} \n\nSwitching tabs again will result in auto-submission.`);
+    }
+}
+
+// 1. Detect Tab Switching (Visibility API)
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+        handleViolation();
+    }
+});
+
+// 2. Detect Window Focus Loss (Alt+Tab or clicking outside)
+window.addEventListener("blur", () => {
+    handleViolation();
+});
+
+// Optional: Prevent Right Click (to stop Inspect Element/Google Search)
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Optional: Prevent Copy-Paste
+document.addEventListener('copy', (e) => {
+    e.preventDefault();
+    alert("Copying is disabled during the exam.");
+});
